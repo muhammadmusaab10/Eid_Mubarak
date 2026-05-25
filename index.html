@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eid ul Adha Mubarak</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background: url('edd.jpg') no-repeat center/cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  position: relative;
+  padding: 15px;
+}
+
+/* Overlay */
+body::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.7);
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+
+/* Developer Name */
+.dev-name {
+  position: absolute;
+  top: 10px;
+  width: 100%;
+  text-align: center;
+  font-size: 12px;
+  letter-spacing: 1px;
+  color: #ffd700;
+  z-index: 2;
+}
+
+/* Content */
+.start-screen, .container {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 500px;
+  text-align: center;
+}
+
+/* Button */
+.start-btn {
+  width: 80%;
+  max-width: 250px;
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 30px;
+  border: none;
+  background: linear-gradient(45deg, #ffd700, #ffcc00);
+  color: black;
+  cursor: pointer;
+}
+
+/* Message Box */
+.container {
+  display: none;
+  padding: 20px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+}
+
+/* Heading */
+h1 {
+  font-size: 1.4rem;
+  color: #ffd700;
+  margin-bottom: 15px;
+}
+
+/* Lines */
+.line {
+  opacity: 0;
+  margin-bottom: 10px;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.show {
+  animation: fadeUp 1s forwards;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Stars */
+.star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: white;
+  opacity: 0.7;
+  animation: moveStars linear infinite;
+}
+
+@keyframes moveStars {
+  from { transform: translateY(0); }
+  to { transform: translateY(-100vh); }
+}
+
+/* 📱 EXTRA MOBILE FIXES */
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.2rem;
+  }
+
+  .line {
+    font-size: 0.9rem;
+  }
+
+  .start-btn {
+    font-size: 15px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="dev-name">Developer: Muhammad Musaab</div>
+
+<!-- Stars -->
+<script>
+for (let i = 0; i < 70; i++) {
+  let star = document.createElement("div");
+  star.className = "star";
+  star.style.left = Math.random() * 100 + "vw";
+  star.style.top = Math.random() * 100 + "vh";
+  star.style.animationDuration = (Math.random() * 8 + 5) + "s";
+  document.body.appendChild(star);
+}
+</script>
+
+<!-- Start Screen -->
+<div class="start-screen">
+  <button class="start-btn" onclick="startEid()">✨ Open Message ✨</button>
+</div>
+
+<!-- Message -->
+<div class="container" id="messageBox">
+  <h1>🌙 Eid ul Adha Mubarak ✨</h1>
+
+  <p class="line">May this beautiful Eid bring peace to your heart,</p>
+  <p class="line">happiness to your home,</p>
+  <p class="line">and countless blessings to your life.</p>
+
+  <p class="line">May Allah accept our sacrifices,</p>
+  <p class="line">forgive our shortcomings,</p>
+  <p class="line">and guide us towards success and goodness.</p>
+
+  <p class="line">Let’s spread kindness, share smiles,</p>
+  <p class="line">and remember those in need.</p>
+
+  <p class="line"><strong>Wishing you a joyful and blessed Eid 💖</strong></p>
+</div>
+
+<script>
+function startEid() {
+  document.querySelector(".start-screen").style.display = "none";
+
+  let box = document.getElementById("messageBox");
+  box.style.display = "block";
+
+  let lines = document.querySelectorAll(".line");
+  lines.forEach((line, index) => {
+    setTimeout(() => {
+      line.classList.add("show");
+    }, index * 900);
+  });
+}
+</script>
+
+</body>
+</html>
